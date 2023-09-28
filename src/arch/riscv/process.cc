@@ -103,7 +103,7 @@ RiscvProcess64::initState()
     argsInit<uint64_t>(PageBytes);
     for (ContextID ctx: contextIds) {
         auto *tc = system->threads[ctx];
-        tc->setMiscRegNoEffect(MISCREG_PRV, PRV_U);
+        tc->setMiscRegNoEffect(MISCREG_PRV, PRV_M);
         auto *isa = dynamic_cast<ISA*>(tc->getIsaPtr());
         fatal_if(isa->rvType() != RV64, "RISC V CPU should run in 64 bits mode");
     }
@@ -117,7 +117,7 @@ RiscvProcess32::initState()
     argsInit<uint32_t>(PageBytes);
     for (ContextID ctx: contextIds) {
         auto *tc = system->threads[ctx];
-        tc->setMiscRegNoEffect(MISCREG_PRV, PRV_U);
+        tc->setMiscRegNoEffect(MISCREG_PRV, PRV_M);
         auto *isa = dynamic_cast<ISA*>(tc->getIsaPtr());
         fatal_if(isa->rvType() != RV32, "RISC V CPU should run in 32 bits mode");
     }
