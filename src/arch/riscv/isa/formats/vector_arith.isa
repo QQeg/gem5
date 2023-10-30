@@ -898,7 +898,7 @@ def format Vector1Vs1VdMaskFormat(code, category, *flags){{
     # Because of the use of templates, we had to put all parts in header to
     # keep the compiler happy.
     header_output = \
-        Vector1Vs1RdMaskDeclare.subst(iop) + \
+        Vector1Vs1VdMaskDeclare.subst(iop) + \
         Vector1Vs1VdMaskConstructor.subst(iop) + \
         Vector1Vs1VdMaskExecute.subst(iop)
 
