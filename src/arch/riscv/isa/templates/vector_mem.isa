@@ -452,7 +452,7 @@ def template VlmConstructor {{
     %(set_reg_idx_arr)s;
     %(constructor)s;
 
-    const uint32_t micro_vlmax = vlen / width_EEW(_machInst.width);
+    const uint32_t micro_vlmax = vtype_VLMAX(machInst.vtype8, vlen, false);
     int32_t micro_vl = (std::min(this->vl, micro_vlmax) + 7) / 8;
     StaticInstPtr microop;
 
@@ -479,7 +479,7 @@ def template VsmConstructor {{
     %(set_reg_idx_arr)s;
     %(constructor)s;
 
-    const uint32_t micro_vlmax = vlen / width_EEW(_machInst.width);
+    const uint32_t micro_vlmax = vtype_VLMAX(machInst.vtype8, vlen, false);
     int32_t micro_vl = (std::min(this->vl, micro_vlmax) + 7) / 8;
 
     StaticInstPtr microop;
